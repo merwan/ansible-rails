@@ -13,7 +13,7 @@
 
 ## Create new rails app
 
-```
+```bash
 cd /vagrant
 rails new myapp
 ```
@@ -21,12 +21,12 @@ rails new myapp
 ## Enable rails interactive web console
 
 Get your VM ip address:
-```
+```bash
 ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'
 ```
 
 Then add following line to your rails development configuration file `/vagrant/myapp/config/environments/development.rb` (replace `192.168.0.100` by the VM ip address):
-```
+```ruby
 Rails.application.configure do
   config.web_console.whitelisted_ips = '192.168.0.100/24'
 end
@@ -34,10 +34,10 @@ end
 
 ## Run development server
 
-```
+```bash
 vagrant ssh
 cd /vagrant/myapp
 bin/rails s -b 0.0.0.0
 ```
 
-Then, open the site from your host: http://localhost:3000
+Then, open the site from your host: [http://localhost:3000](http://localhost:3000)
