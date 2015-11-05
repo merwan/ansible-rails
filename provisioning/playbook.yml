@@ -24,7 +24,10 @@
 
     - name: install ruby dependencies
       apt: name={{ item }}
-      with_items: [libssl-dev, libreadline-dev, zlib1g-dev]
+      with_items:
+        - libssl-dev
+        - libreadline-dev
+        - zlib1g-dev
       become: True
 
     - name: install ruby 2.2.3
