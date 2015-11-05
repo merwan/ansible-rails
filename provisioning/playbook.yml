@@ -44,3 +44,17 @@
 
     - name: install rails gem
       shell: . ~/.bash_profile && gem install rails
+
+    - name: get nodejs repository script
+      get_url: url=https://deb.nodesource.com/setup_5.x dest=/tmp/setup_5.x
+
+    - name: add nodejs repository
+      command: bash /tmp/setup_5.x
+      become: True
+
+    - name: install nodejs
+      apt: name={{ item }}
+      with_items:
+        - build-essential
+        - nodejs
+      become: True
