@@ -36,5 +36,11 @@
     - name: set global ruby to 2.2.3
       shell: . ~/.bash_profile && rbenv global 2.2.3
 
+    - name: install rails dependencies
+      apt: name={{ item }}
+      with_items:
+        - libsqlite3-dev
+      become: True
+
     - name: install rails gem
       shell: . ~/.bash_profile && gem install rails
