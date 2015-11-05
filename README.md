@@ -28,7 +28,7 @@ ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print 
 Then add following line to your rails development configuration file `/vagrant/myapp/config/environments/development.rb` (replace `192.168.0.100` by the VM ip address):
 ```
 Rails.application.configure do
-  config.web_console.whitelisted_ips = '192.168.0.100'
+  config.web_console.whitelisted_ips = '192.168.0.100/24'
 end
 ```
 
